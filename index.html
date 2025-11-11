@@ -1,1 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kathleen Nunez | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ffd6ec;
+        --primary-strong: #ff9fcd;
+        --secondary: #14253b;
+        --glass: rgba(255, 255, 255, 0.45);
+        --border: rgba(255, 255, 255, 0.6);
+        --text: rgba(20, 37, 59, 0.95);
+        --muted: rgba(20, 37, 59, 0.6);
+      }
 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at 20% 20%, #fff8fc, #ffe3f3 45%, #dfe9ff 80%);
+        font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text);
+        padding: 40px 16px 64px;
+      }
+
+      .container {
+        width: min(1180px, 96vw);
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 30px;
+        border-radius: 32px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 20px 60px rgba(20, 37, 59, 0.15);
+      }
+
+      .brand {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--secondary);
+      }
+
+      nav {
+        display: flex;
+        gap: 12px;
+        flex-wrap: nowrap;
+      }
+
+      nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        text-decoration: none;
+        color: var(--secondary);
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        background: rgba(255, 255, 255, 0.55);
+        transition: all 0.2s ease;
+      }
+
+      nav a:hover,
+      nav a:focus,
+      nav a.is-active {
+        border-color: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.85);
+        color: var(--primary-strong);
+      }
+
+      main {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 28px;
+        padding: 36px;
+        border-radius: 40px;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 30px 80px rgba(20, 37, 59, 0.2);
+      }
+
+      .panel {
+        border-radius: 28px;
+        padding: 28px;
+        background: var(--glass);
+        border: 1px solid var(--border);
+        backdrop-filter: blur(24px);
+      }
+
+      .panel-left {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 28px;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 12px 30px rgba(20, 37, 59, 0.15);
+      }
+
+      .chip {
+        width: fit-content;
+        padding: 6px 14px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        color: var(--secondary);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .identity h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.9rem;
+        line-height: 1.2;
+        color: var(--secondary);
+        margin-top: 0px;
+      }
+
+      .identity p {
+        color: var(--muted);
+        margin-top: 6px;
+        font-size: 1rem;
+      }
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        font-size: 0.95rem;
+        color: var(--muted);
+        margin-top: 20px;
+      }
+
+      .contact a {
+        color: var(--secondary);
+        text-decoration: none;
+      }
+
+      .contact a:hover,
+      .contact a:focus {
+        color: var(--primary-strong);
+      }
+
+      .panel-right {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      section {
+        border-radius: 26px;
+        padding: 28px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: inset 0 0 0 1px rgba(20, 37, 59, 0.05);
+      }
+
+      section + section {
+        margin-top: 10px;
+      }
+
+      section h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: var(--secondary);
+      }
+
+      section p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .services {
+        display: grid;
+        gap: 14px;
+      }
+
+      .service {
+        background: rgba(248, 184, 213, 0.18);
+        border: 1px solid rgba(12, 28, 50, 0.08);
+        border-radius: 18px;
+        padding: 16px 18px;
+      }
+
+      .service h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        color: var(--secondary);
+        margin-bottom: 6px;
+      }
+
+      .service p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 900px) {
+        main {
+          grid-template-columns: 1fr;
+          padding: 28px;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        nav {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 24px 12px;
+        }
+
+        main {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="brand">Kathleen Nunez</div>
+        <nav>
+          <a href="index.html#about" class="is-active">About</a>
+          <a href="index.html#cv">CV</a>
+          <a href="portfolio.html">Portfolio</a>
+        </nav>
+      </header>
+
+      <main>
+        <aside class="panel panel-left">
+          <img src="profile.png" alt="Portrait of Kathleen Nunez" class="profile-photo" />
+          <span class="chip">Open to Work</span>
+          <div class="identity">
+            <h1>Kathleen Nunez</h1>
+            <p>Web Designer / Digital Marketer</p>
+          </div>
+          <div class="contact">
+            <span>📍 Batangas, Philippines</span>
+            <span>📧 <a href="mailto:nunezkathleenm@gmail.com">nunezkathleenm@gmail.com</a></span>
+          </div>
+        </aside>
+
+        <div class="panel panel-right">
+          <section id="about">
+            <h2>About Me</h2>
+            <p>
+              I’m a web designer and BSIT student at PUP Sto. Tomas. As a freelancer, I design high-converting, visually
+              refined interfaces. I help brands turn ideas into engaging digital experiences that connect and convert.
+            </p>
+          </section>
+
+          <section id="cv">
+            <h2>What I Do</h2>
+            <div class="services">
+              <div class="service">
+                <h3>Front-End Design</h3>
+                <p>Clean, responsive interfaces built for usability and style.</p>
+              </div>
+              <div class="service">
+                <h3>Graphic Design</h3>
+                <p>Visual storytelling that aligns with your brand identity.</p>
+              </div>
+              <div class="service">
+                <h3>Virtual Assistance</h3>
+                <p>Organized, detail-driven support for creative and business needs.</p>
+              </div>
+              <div class="service">
+                <h3>Digital Marketing</h3>
+                <p>Strategies that attract, engage, and grow your audience.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
