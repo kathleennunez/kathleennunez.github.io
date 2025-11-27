@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Nintendo Switch Mario Red",
+    "category": "Campaign Landing Page",
+    "description": "A dynamic hero page spotlighting Nintendo Switch with bold visuals, playful gradients, and crisp, action-led sections.",
+    "thumbnail": "assets/project_thumbnails/nintendo.png",
+    "href": "https://kathleennunez.github.io/nintendo-switch-mario-red.github.io/"
+  },
+  {
+    "title": "Dolomites, Italy",
+    "category": "Travel Microsite",
+    "description": "An alpine showcase featuring the sweeping Dolomite views, and clean, curated highlights.",
+    "thumbnail": "assets/project_thumbnails/dolomites.png",
+    "href": "https://kathleennunez.github.io/dolomites-italy.github.io/"
+  },
+  {
+    "title": "Marvel Cinematic Universe",
+    "category": "Film Showcase",
+    "description": "A cinematic gallery highlighting MCU titles with vibrant cards and streamlined browsing.",
+    "thumbnail": "assets/project_thumbnails/marvel.png",
+    "href": "https://kathleennunez.github.io/marvel-cinematic-universe/"
+  }
+]

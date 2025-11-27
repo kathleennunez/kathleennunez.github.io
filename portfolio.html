@@ -231,7 +231,6 @@
         <div class="brand">Kathleen Nunez</div>
         <nav>
           <a href="index.html">About</a>
-          <a href="index.html#cv">CV</a>
           <a href="portfolio.html" class="is-active">Portfolio</a>
         </nav>
       </header>
@@ -241,44 +240,57 @@
           <span>Featured Work</span>
           <h1>Projects</h1>
         </div>
-        <div class="project-grid">
-          <a
-            class="project-card"
-            href="https://kathleennunez.github.io/nintendo-switch-mario-red.github.io/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div class="thumb" style="background-image: url('nintendo.png');"></div>
-            <div class="card-body">
-              <span>Campaign Landing Page</span>
-              <h3>Nintendo Switch Mario Red</h3>
-              <p>
-                A bold, character-driven landing page featuring dynamic typography and CTA-focused modules designed to
-                boost engagement.
-              </p>
-              <div class="cta">View Project</div>
-            </div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://kathleennunez.github.io/dolomites-italy.github.io/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div class="thumb" style="background-image: url('dolomites.png');"></div>
-            <div class="card-body">
-              <span>Travel Microsite</span>
-              <h3>Dolomites, Italy</h3>
-              <p>
-                An immersive travel experience built with glass cards, scenic highlights, and airy typography crafted for
-                premium tourism brands.
-              </p>
-              <div class="cta">View Project</div>
-            </div>
-          </a>
-        </div>
+        <div class="project-grid" id="projectGrid"></div>
       </section>
     </div>
+    <script>
+      async function renderProjects() {
+        const grid = document.getElementById("projectGrid");
+
+        try {
+          const response = await fetch("assets/projects.json");
+          if (!response.ok) throw new Error("Unable to load projects");
+
+          const projects = await response.json();
+
+          projects.forEach((project) => {
+            const card = document.createElement("a");
+            card.className = "project-card";
+            card.href = project.href;
+            card.target = "_blank";
+            card.rel = "noreferrer";
+
+            const thumb = document.createElement("div");
+            thumb.className = "thumb";
+            thumb.style.backgroundImage = `url('${project.thumbnail}')`;
+
+            const body = document.createElement("div");
+            body.className = "card-body";
+
+            const category = document.createElement("span");
+            category.textContent = project.category;
+
+            const title = document.createElement("h3");
+            title.textContent = project.title;
+
+            const description = document.createElement("p");
+            description.textContent = project.description;
+
+            const cta = document.createElement("div");
+            cta.className = "cta";
+            cta.textContent = "View Project";
+
+            body.append(category, title, description, cta);
+            card.append(thumb, body);
+            grid.appendChild(card);
+          });
+        } catch (error) {
+          grid.innerHTML = "<p style='color: var(--muted);'>Projects will be back shortly.</p>";
+          console.error(error);
+        }
+      }
+
+      renderProjects();
+    </script>
   </body>
 </html>
